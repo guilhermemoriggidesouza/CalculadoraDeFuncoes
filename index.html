@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <title>Hello, odilaum</title>
+        <style>
+            .backGround{
+                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#32fc90+0,88b2fc+100 */
+                background: #32fc90; /* Old browsers */
+                background: -moz-linear-gradient(left, #32fc90 0%, #88b2fc 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(left, #32fc90 0%,#88b2fc 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to right, #32fc90 0%,#88b2fc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#32fc90', endColorstr='#88b2fc',GradientType=1 ); /* IE6-9 */
+            }
+        </style>
+    </head>
+    <body>
+        <section id="custos">
+            <div class="container">
+                <div class="row justify-text-center">
+                    <div class="col-12 text-center">
+                        <h4>CALCULADORA DE FUNÇÕES</h4>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 p-0 mt-5">
+                        <h4 class="text-center mb-5">Custos</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Custos fixos</label>
+                                <input type="number" class="form-control" id="CustosFixos" placeholder="custos fixos">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Custos Variaveis</label>
+                                <input type="number" class="form-control" id="CustosVariaveis" placeholder="USAR PONTO AO INVÉS DE VIRGULA">
+                            </div>
+                            <div class="form-group text-center mt-5">
+                                <button type="button" id="custoCalcular" class="mt-5 btn btn-primary">Calcular Custos</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-6 p-0 mt-5">
+                        <img src="custos.jpg" class="img-fluid" alt="custos">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Receita" class="d-none">
+            <div class="container">
+                <div class="row justify-text-center">
+                        <div class="col-12 text-center">
+                            <h4>CALCULADORA DE FUNÇÕES</h4>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 p-0 mt-5">
+                            <p><b>custos: </b><span id="resultadoCustos"></span></p>
+                            <h4 class="text-center mb-5">Receita</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Valor do produto</label>
+                                    <input type="number" class="form-control" id="ValorDoProduto" placeholder="Valor do produto">
+                                </div>
+                                <div class="form-group text-center mt-5">
+                                    <button type="button" id="receitaCalcular" class="mt-5 btn btn-primary">Calcular Custos</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-6 p-0 mt-5">
+                            <img src="receita.jpg" class="img-fluid" alt="custos">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="pontoDeEquilibrio" class="d-none">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h4>CALCULADORA DE FUNÇÕES</h4>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 my-5 p-0">
+                        <h5>Receita: <span id="ReceitaFinal"></span></h5>
+                        <h5>Custos: <span id="CustosFinal"></span></h5>
+                        <h4 class="text-center my-5">Ponto de equilibrio:</h4>
+                        <p class="text-center" id="pontoEquilibrio"></p>
+                    </div>
+                    <div class="col-6 p-0 text-center">
+                        <img src="equilibrio.jpg" class="img-fluid" alt="equilibrio">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <button id="graficoButton" class="btn w-100 btn-primary">Mostrar Gráfico</button>
+                    </div>
+                </div>
+                <div id="grafico" class="d-none">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mb-5">
+                            <p>Passe o mouse para ver todas as informações</p>
+                            <div id="curve_chart" class="text-center"></div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-3 bg-primary">
+                                    <p class="text-light mt-2 text-center"><b>Custos</b></p>
+                                </div>
+                                <div class="col-3 bg-danger">
+                                    <p class="text-light mt-2 text-center"><b>Receita</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <footer class="backGround fixed-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <p class="my-3 text-center text-white"><i class="fas fa-atlas"></i><b> Desenvolvido por Guilherme Moriggi | Odilon passa nois</b></p>
+                    </div>  
+                </div>
+            </div>
+        </footer>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="funcoesjs.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+    <script type="text/javascript">
+        
+      </script>
+</html>
